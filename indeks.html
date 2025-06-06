@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Biaya Mobil</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input[type="number"] {
+      margin: 5px 0;
+      padding: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: right;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator Biaya Mobil</h1>
+  <div>
+    <label>Harga On The Road (Rp): </label>
+    <input type="number" id="hargaMobil" value="400000000"><br>
+    <label>Uang Muka (Rp): </label>
+    <input type="number" id="uangMuka" value="150000000"><br>
+    <label>Angsuran Bulanan (Rp): </label>
+    <input type="number" id="angsuranBulanan" value="7000000"><br>
+    <label>Pajak Tahunan (Rp): </label>
+    <input type="number" id="pajakTahunan" value="6000000"><br>
+    <label>Biaya Servis per Tahun (Rp): </label>
+    <input type="number" id="biayaServis" value="2500000"><br>
+    <label>Harga BBM per Liter (Rp): </label>
+    <input type="number" id="hargaBBM" value="10000"><br>
+    <label>Jarak Harian (Senin-Jumat) Pulang-Pergi (km): </label>
+    <input type="number" id="jarakHarian" value="20"><br>
+    <label>Jarak Akhir Pekan Pulang-Pergi (km): </label>
+    <input type="number" id="jarakAkhirPekan" value="120"><br>
+    <button onclick="hitungBiaya()">Hitung Biaya</button>
+  </div>
+
+  <div class="result">
+    <h2>Rincian Biaya Tahunan</h2>
+    <table id="biayaTable">
+      <thead>
+        <tr>
+          <th>Tahun</th>
+          <th>Uang Muka (Rp)</th>
+          <th>Angsuran (Rp)</th>
+          <th>Pajak (Rp)</th>
+          <th>BBM (Rp)</th>
+          <th>Biaya Servis (Rp)</th>
+          <th>Total Biaya (Rp)</th>
+        </tr>
+      </thead>
+      <tbody id="biayaTableBody"></tbody>
+    </table>
+    <canvas id="biayaChart" width="600" height="400"></canvas>
+  </div>
+
+  <script src="kalkulator.js"></script>
+</body>
+</html>
